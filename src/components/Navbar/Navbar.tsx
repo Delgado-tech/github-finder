@@ -31,7 +31,7 @@ export default function Navbar() {
     return (
         <NavbarContainer>
             <input ref={navbarRef} type="text" placeholder="Pesquisar Usuário" spellCheck={false} maxLength={100} />
-            <HiSearch className="flip" />
+            <HiSearch className="rotate90" />
         </NavbarContainer>
     );
 }

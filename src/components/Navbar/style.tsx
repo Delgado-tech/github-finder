@@ -13,7 +13,7 @@ export const NavbarContainer = styled.nav`
 
     & input {
         width: 100%;
-        height: 1rem;
+        height: 1.25rem;
         font-size: 1rem;
         color: ${({theme}) => theme.colors.fg.main};
 

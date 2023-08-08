@@ -7,7 +7,8 @@ import { ThemeProvider } from 'styled-components';
 import { theme } from './Theme.tsx';
 import Home from './routes/Home/Home.tsx';
 import Repos from './routes/Repos/Repos.tsx';
-import { getGithubUser } from './services/githubUserAPI.tsx';
+import { getGithubRepositories, getGithubUser } from './services/githubUserAPI.tsx';
+
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,15 @@ const router = createBrowserRouter([
       {
         path: '/:loginId/repos',
         element: <Repos />,
+        loader: async ({params, request}) => {
+          const { loginId } = params;
+
+          const url = new URL(request.url);
+          const page = Number(url.searchParams.get("page"));
+          const perPage = 30;
+
+          return await getGithubRepositories(loginId, perPage, page);
+        }
       }
     ]
 

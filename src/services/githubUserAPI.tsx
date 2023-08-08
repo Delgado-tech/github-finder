@@ -16,14 +16,16 @@ export interface githubUserParams {
 }
 
 export interface githubReposParams {
-    url: string,
-    name: string,
-    visibility: string,
-    description: string | null,
-    license: string | null,
-    language: string | null,
-    stargazers_count: number,
-    created_at: string
+    props: {
+        url: string,
+        name: string,
+        visibility: string,
+        description: string | null,
+        license: string | null,
+        language: string | null,
+        stargazers_count: number,
+        created_at: string
+    }
 }
 
 export enum invalidUserReason {
@@ -66,13 +68,44 @@ export async function getGithubUser(loginId: string | undefined): Promise<github
     return userParams;
 }
 
-export async function getGithubRepos(loginId: string | undefined, perPage: number = 10, page: number = 1): Promise<githubReposParams[] | null> {
+export async function getGithubRepositories(loginId: string | undefined, perPage: number = 30, page: number = 1): Promise<githubReposParams[] | null> {
     if(!loginId) return null;
 
     const response = await fetch(`https://api.github.com/users/${loginId}/repos?per_page=${perPage}&&page=${page}`);
-    const data = await response.json();
-    console.log(data);
     
+    if(!response.ok) return null;
 
-    return data;
+    const data = await response.json();
+    const repositories: githubReposParams[] = [];
+
+    for (let i = 0; i < data.length; i++){
+        repositories.push(await getGithubRepository(data, i));
+    }
+
+    return repositories;
+}
+
+async function getGithubRepository(reposList: any[], reposId: number): Promise<githubReposParams> {
+    const reposParams: githubReposParams = {
+        props: {
+            url: '',
+            name: '',
+            visibility: '',
+            description: '',
+            license: '',
+            language: '',
+            stargazers_count: 0,
+            created_at: ''
+        }   
+    };
+
+    const data: any = reposList[reposId];
+
+    for (const key in data) {
+        if(reposParams.props.hasOwnProperty(key)) {
+            (reposParams.props as any)[key] = data[key];
+        }
+    }
+
+    return reposParams;
 }

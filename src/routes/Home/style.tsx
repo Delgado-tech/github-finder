@@ -32,18 +32,6 @@ export const HomeContainer = styled.div`
                 color: ${({theme}) => theme.colors.fg.c5};
             }
         
-            &::-webkit-scrollbar {
-                background: ${({theme}) => theme.colors.bg.c1};
-                width: 12px;
-            }
-
-            &::-webkit-scrollbar-thumb {
-                background: ${({theme}) => theme.colors.bg.c5};
-                border-radius: 50px;    
-                border: 2px solid ${({theme}) => theme.colors.bg.c1};
-                border-top: 3px solid ${({theme}) => theme.colors.bg.c1};
-                border-bottom: 3px solid ${({theme}) => theme.colors.bg.c1};
-            }
         }
         
     }

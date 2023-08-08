@@ -8,7 +8,7 @@ export default function Sidebar({ props }: githubUserParams) {
     return (
         <SidebarContainer>
             <figure>
-                <img src={defaultAvatar} alt="avatar" />
+                <img src={props ? ( props.avatar_url === null ? defaultAvatar : props.avatar_url ) : defaultAvatar} alt="avatar" />
             </figure>
             <div className="sidebar_username">
                 <a href={props ? props.html_url : "#"} target={props && "_blank"}>
