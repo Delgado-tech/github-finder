@@ -41,6 +41,7 @@ export const ReposCardContainer = styled.nav`
     }
 
     & .repos_repository_description {
+        color: ${({theme}) => theme.colors.fg.c3};
         font-size: 0.875rem;
         line-height: 1.25rem;
         height: calc(1.25rem * 3);
@@ -58,7 +59,10 @@ export const ReposCardContainer = styled.nav`
         background-color: ${({theme}) => theme.colors.bg.main};
         border-radius: ${({theme}) => theme.borderRadius.medium};
         border: 1px solid ${({theme}) => theme.colors.bg.c3};
+    }
 
+    & .repos_repository_language_emptySpace {
+        margin-bottom: 1rem;
     }
 
 `;

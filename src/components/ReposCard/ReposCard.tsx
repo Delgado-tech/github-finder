@@ -16,8 +16,10 @@ export default function ReposCard({props}: githubReposParams) {
             <p className="repos_repository_createdAt">(criado em: {format(new Date(props.created_at), "dd/MM/yyyy")})</p>
             <p className="repos_repository_description">{props.description !== null && props.description}</p>
             { 
-                props.language !== null && (
-                    <p className="repos_repository_language font-display">{props.language}</p>
+                props.language && props.language !== "" ? (
+                    <p className="repos_repository_language font_display">{props.language}</p>
+                ) : (
+                    <div className="repos_repository_language_emptySpace"></div>
                 )
             }
         </ReposCardContainer>

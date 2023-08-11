@@ -14,6 +14,7 @@ export const GlobalStyle = createGlobalStyle`
         border: none;
         background: none;
         outline: none;
+        list-style: none;
     }
 
     ::-webkit-scrollbar {
@@ -33,6 +34,7 @@ export const GlobalStyle = createGlobalStyle`
         background-color: ${({theme}) => theme.colors.bg.main};
         width: 60%;
         max-width: 1200px;
+        min-height: 100vh;
         height: 100%;
         margin: 0 auto;
         padding: 0 3rem;

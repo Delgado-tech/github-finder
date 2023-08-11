@@ -19,7 +19,9 @@ function App() {
             </div>
           ) : (
             <main>
-              <Sidebar props={githubUser.props} />
+              <div className="app_sidebar">
+                <Sidebar props={githubUser.props} />
+              </div>
               <Outlet context={ githubUser }/>
             </main> 
           )

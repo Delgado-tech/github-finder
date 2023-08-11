@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const SidebarContainer = styled.section`
-    grid-column: span 4;
     color: ${({theme}) => theme.colors.fg.main};
 
     display: flex;
@@ -10,6 +9,9 @@ export const SidebarContainer = styled.section`
     gap: 1.5rem;
     width: 100%;
     max-width: 250px;
+
+    position: sticky;
+    top: 2rem;
 
     & figure {
         width: 90%;

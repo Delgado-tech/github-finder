@@ -33,6 +33,24 @@ export enum invalidUserReason {
     userNotFound = 1,
 }
 
+export const orderByOption: string[] = [ 
+    "A-Z",
+    "Z-A",
+    "Mais Recente",
+    "Mais Antigo",
+    "Linguagem",
+    "Estrelas"
+];
+
+export type orderByOption =  
+    "A-Z" |
+    "Z-A" |
+    "Mais Recente" |
+    "Mais Antigo" |
+    "Linguagem" |
+    "Estrelas"
+;
+
 export async function getGithubUser(loginId: string | undefined): Promise<githubUserParams | invalidUserReason > {
     if(!loginId) return invalidUserReason.emptyUser;
 
@@ -68,7 +86,7 @@ export async function getGithubUser(loginId: string | undefined): Promise<github
     return userParams;
 }
 
-export async function getGithubRepositories(loginId: string | undefined, perPage: number = 30, page: number = 1): Promise<githubReposParams[] | null> {
+export async function getGithubRepositories(loginId: string | undefined, perPage: number = 30, page: number = 1, order: orderByOption = "A-Z"): Promise<githubReposParams[] | null> {
     if(!loginId) return null;
 
     const response = await fetch(`https://api.github.com/users/${loginId}/repos?per_page=${perPage}&&page=${page}`);
@@ -82,7 +100,30 @@ export async function getGithubRepositories(loginId: string | undefined, perPage
         repositories.push(await getGithubRepository(data, i));
     }
 
-    return repositories;
+    const sortedRepositories = repositories.sort((a: githubReposParams, b: githubReposParams) => {
+        if (order === "Z-A") {
+            return (a.props.name < b.props.name ? 1 : -1);
+
+        } else if (order === "Mais Recente") {
+            return (new Date(a.props.created_at) < new Date(b.props.created_at) ? 1 : -1);
+
+        } else if (order === "Mais Antigo") {
+            return (new Date(a.props.created_at) > new Date(b.props.created_at) ? 1 : -1);
+
+        } else if (order === "Linguagem") {
+            if(!a.props.language) a.props.language = "";
+            if(!b.props.language) b.props.language = "";
+            return (a.props.language > b.props.language ? 1 : -1);
+
+        } else if(order === "Estrelas") {
+            return (a.props.stargazers_count < b.props.stargazers_count ? 1 : -1);
+
+        }
+
+        return 0; //A-Z
+    })
+
+    return sortedRepositories;
 }
 
 async function getGithubRepository(reposList: any[], reposId: number): Promise<githubReposParams> {

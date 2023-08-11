@@ -6,6 +6,10 @@ export const AppContainer = styled.section`
         grid-template-columns: repeat(12, 1fr);
         column-gap: 1rem;
         padding: 3rem 0;
+
+        & .app_sidebar {
+            grid-column: span 4;
+        }
     }
 
     & .app_userNotFound {
