@@ -1,14 +1,11 @@
 import { useEffect, useRef } from "react";
 import { NavbarContainer } from "./style";
 import { HiSearch } from 'react-icons/hi';
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
     const navbarRef = useRef<HTMLInputElement | null>(null);
     const navigate = useNavigate();
-
-    const location = useLocation();
-    const reloadPage = (location.search !== '');
     
     useEffect(() => {
         const navbar = navbarRef.current;

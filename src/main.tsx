@@ -8,7 +8,6 @@ import { theme } from './Theme.tsx';
 import Home from './routes/Home/Home.tsx';
 import Repos from './routes/Repos/Repos.tsx';
 import { getGithubRepositories, getGithubUser, orderByOption } from './services/githubUserAPI.tsx';
-import { clamp } from 'date-fns';
 
 
 const router = createBrowserRouter([
