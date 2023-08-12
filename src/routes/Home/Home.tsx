@@ -21,7 +21,7 @@ export default function Home() {
                 <p>Usuário desde: { userParams.props ? format(new Date(userParams.props.created_at), "dd/MM/yyyy") : "xx/xx/xxxx" }</p>
                 <p>Localização: { userParams.props ? (userParams.props.location ? userParams.props.location : "não definido") : "xxxxxxx" }</p>
             </div>
-            <Link to={'repos'}>
+            <Link to={userParams.props ? 'repos' : '#'}>
                 <ButtonRepos public_repos={userParams.props ? userParams.props.public_repos : 0} />
             </Link>
         </HomeContainer>

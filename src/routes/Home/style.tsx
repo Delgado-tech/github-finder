@@ -41,4 +41,8 @@ export const HomeContainer = styled.div`
         line-height: 1.5rem;
         color: ${({theme}) => theme.colors.fg.c3};
     }
+
+    @media screen and (max-width: 1176px) {
+        grid-column: span 12;
+    }
 `;

@@ -12,9 +12,18 @@ export const HeaderContainer = styled.header`
     & h1 {
         letter-spacing: 1.5px;
         font-size: 2rem;
+        cursor: pointer;
     }
 
     & nav {
         width: 60%;
+    }
+
+    @media screen and (max-width: 1176px) {
+        flex-direction: column;
+
+        & nav {
+            width: 100%;
+        }
     }
 `;

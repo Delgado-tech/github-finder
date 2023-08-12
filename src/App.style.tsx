@@ -9,6 +9,7 @@ export const AppContainer = styled.section`
 
         & .app_sidebar {
             grid-column: span 4;
+            padding-bottom: 3rem;
         }
     }
 
@@ -25,6 +26,14 @@ export const AppContainer = styled.section`
 
         & p {
             color: ${({theme}) => theme.colors.fg.main};
+        }
+    }
+
+    @media screen and (max-width: 1176px) {
+        & .app_sidebar {
+            grid-column: span 12 !important;
+            display: flex;
+            justify-content: center;
         }
     }
 `;

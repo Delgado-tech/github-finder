@@ -70,4 +70,18 @@ export const SidebarContainer = styled.section`
         }
     
     }
+
+    @media screen and (max-width: 1176px) {
+        position: relative;
+        top: 0;
+        max-width: 350px;
+
+        & .sidebar_username {
+            text-align: center;
+        }
+
+        & .sidebar_followers {
+            justify-content: center;
+        }
+    }
 `;

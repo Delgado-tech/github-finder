@@ -17,7 +17,7 @@ export interface githubUserParams {
 
 export interface githubReposParams {
     props: {
-        url: string,
+        html_url: string,
         name: string,
         visibility: string,
         description: string | null,
@@ -129,7 +129,7 @@ export async function getGithubRepositories(loginId: string | undefined, perPage
 async function getGithubRepository(reposList: any[], reposId: number): Promise<githubReposParams> {
     const reposParams: githubReposParams = {
         props: {
-            url: '',
+            html_url: '',
             name: '',
             visibility: '',
             description: '',

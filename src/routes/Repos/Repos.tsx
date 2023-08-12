@@ -1,15 +1,18 @@
 import { ReposContainer } from "./style";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate, useOutletContext } from "react-router-dom";
 import { PiArrowRightBold } from "react-icons/pi";
-import { githubReposParams, orderByOption } from "../../services/githubUserAPI";
+import { githubReposParams, githubUserParams, orderByOption } from "../../services/githubUserAPI";
 import ReposCard from "../../components/ReposCard/ReposCard";
 import ButtonSelect from "../../components/ButtonSelect/ButtonSelect";
+import NavRepos from "../../components/NavRepos/NavRepos";
 
 export default function Repos() {
 
     const navigate = useNavigate();
 
     const repositories = useLoaderData() as githubReposParams[] | null;
+    const userParams: githubUserParams = useOutletContext();
+    const totalOfPages = Math.ceil((userParams.props.public_repos / 30));
 
     const reposCards: any = [];
     repositories?.map((repos, index) => reposCards.push(
@@ -29,6 +32,7 @@ export default function Repos() {
             </div>
             <div className="repos_repositories">
                 { reposCards }
+                <NavRepos pagesToShow={3} totalOfPages={totalOfPages} />
             </div>
         </ReposContainer>
     );

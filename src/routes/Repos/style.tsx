@@ -52,4 +52,28 @@ export const ReposContainer = styled.div`
         gap: 1.25rem;
         height: 100%;
     }
+
+    @media screen and (max-width: 1176px) {
+        grid-column: span 12;
+    }
+
+    @media screen and (max-width: 450px) {
+        & .repos_header {
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+
+            & .repos_header_orderBy {
+                width: 100%;         
+
+                & > p {
+                    display: none;
+                }
+
+                & > div { // botão orderby
+                    min-width: 100%;
+                }
+            }
+        }
+    }
 `;

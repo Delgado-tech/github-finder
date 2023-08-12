@@ -8,13 +8,6 @@ export const ReposCardContainer = styled.nav`
     padding: 0.875rem;
     word-wrap: break-word;
 
-    position: relative;
-
-    & a {
-        display: none;
-        position: absolute;
-    }
-
     & div {
         display: flex;
         justify-content: space-between;
@@ -22,9 +15,18 @@ export const ReposCardContainer = styled.nav`
         row-gap: 0.5rem;
         margin-bottom: 0.25rem;
 
-        & h3 {
+        & a {
             width: 75%;
+        }
+
+        & h3 {
             font-size: 1.25rem;
+            transition: all .2s ease;
+
+            &:hover {
+                text-decoration: underline;
+                color: ${({theme}) => theme.colors.secondary.main};
+            }
         }
 
         & p {

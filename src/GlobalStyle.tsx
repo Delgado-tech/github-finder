@@ -3,6 +3,10 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyle = createGlobalStyle`
     :root {
         font-size: 16px;
+
+        @media screen and (max-width: 450px) {
+            font-size: 12px;
+        }
     }
 
     * {
@@ -40,6 +44,15 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0 3rem;
         border-left: 1px solid gray;
         border-right: 1px solid gray;
+
+        @media screen and (max-width: 1176px) {
+            width: 70%;
+        }
+
+        @media screen and (max-width: 700px) {
+            width: 100%;
+            border: none;
+        }
     }
     
     a {

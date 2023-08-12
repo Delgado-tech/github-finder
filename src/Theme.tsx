@@ -23,6 +23,7 @@ export const theme = {
         },
         secondary: {
             main: "#2880f6",
+            dark: "#0051BB"
         }
     },
     borderRadius: {
