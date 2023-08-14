@@ -20,10 +20,10 @@ O projeto teve como objetivo recriar uma interface elaborada por mim no Figma, t
 <br>
 
 <div align="left">
-  <img src="https://github.com/Delgado-tech/github-finder/assets/60985347/e543140b-5a13-4e97-a8e3-4cdebe361b44" width="48%" height="400px"/>
-  <img src="https://github.com/Delgado-tech/github-finder/assets/60985347/4415ee5f-69f0-477e-93a0-e6eba17f3976" width="48%" height="400px"/>
-  <img src="https://github.com/Delgado-tech/github-finder/assets/60985347/f998ff9e-4b3a-4337-8a35-56e1e8b1b1b3" width="48%" height="400px"/>
-  <img src="https://github.com/Delgado-tech/github-finder/assets/60985347/9a253567-3f67-4a92-90ce-78467329981a" width="48%" height="400px"/>
+  <img src="https://github.com/Delgado-tech/github-finder/assets/60985347/e543140b-5a13-4e97-a8e3-4cdebe361b44"/>
+  <img src="https://github.com/Delgado-tech/github-finder/assets/60985347/4415ee5f-69f0-477e-93a0-e6eba17f3976"/>
+  <img src="https://github.com/Delgado-tech/github-finder/assets/60985347/f998ff9e-4b3a-4337-8a35-56e1e8b1b1b3"/>
+  <img src="https://github.com/Delgado-tech/github-finder/assets/60985347/9a253567-3f67-4a92-90ce-78467329981a"/>
 </div>
 
 <br>
